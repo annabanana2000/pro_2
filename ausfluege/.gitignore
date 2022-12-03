@@ -75,11 +75,6 @@ target/
 # pyenv
 .python-version
 
-#zeigt die Datein nicht im Github an
-hello_world/
-todoloo/
-
-
 # celery beat schedule file
 celerybeat-schedule
 
