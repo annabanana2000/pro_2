@@ -15,9 +15,9 @@ Kategorien:
 - Winter
 - Outdoor
 - Indoor
-- Adventurous
+- ActionAPu
 - Gemütlich
-- Food 
+- Essen 
 - Drinks 
 - Pubs, Bars, Clubs
 - Sport
@@ -48,6 +48,7 @@ Für:
 - Langlaufen
 - Übernachtung im Iglu
 - Schneetöff
+- Fonduetram
 
 ### Aktivitäten Outdoor:
 - spazieren
