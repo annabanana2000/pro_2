@@ -13,16 +13,17 @@ Damit die Aktivitäten das Budget nicht überschreiten, kann man als Nutzer*inne
 
 Kategorien: 
 - Winter
+- Sommer
 - Outdoor
 - Indoor
-- ActionAPu
+- Action
 - Gemütlich
 - Essen 
-- Drinks 
+- Getränke
 - Pubs, Bars, Clubs
 - Sport
 - 2 Tagestrip 
-- entspannen
+- Entspannen
 
 
 Budget: 

@@ -14,7 +14,7 @@ def ausflug():
     if len(finanzen) == 0:
         return redirect('budget-erfassen')
     else:
-        return redirect('ausflug-planen')
+        return redirect('kriterien-erfassen')
 
 @app.route('/budget-erfassen', methods=['GET', 'POST'])
 #Quelle: https://vegibit.com/how-to-use-forms-in-python-flask/
@@ -24,23 +24,24 @@ def budget_erfassen():
     else:  # request.method == 'POST'
         budget = int(request.form['budget'])
         abspeichern(budget, 0)
-        return redirect('/ausflug-planen')
-@app.route('/ausflug-planen', methods=['GET', 'POST'])
-def ausflug_planen():
+        return redirect('/kriterien-erfassen')
+@app.route('/kriterien-erfassen', methods=['GET', 'POST'])
+def kritierien_erfassen():
     if request.method == 'GET':
         finanzen = einlesen()
         budget_monat = int(finanzen['budget'])
         ausgegeben_monat = int(finanzen['spent'])
         uebrig_monat = budget_monat - ausgegeben_monat
-        return render_template('ausflug.html', uebrig=uebrig_monat)
+        return render_template('kriterien.html', uebrig=uebrig_monat)
     else:  # request.method == 'POST'
         return "Formular muss noch ergänzt werden"
 
 @app.route('/ausflug-buchen/<ausflug>', methods=['GET', 'POST'])
-@def ausflug_buchen()
+def ausflug_buchen():
     return "Ausflug gebucht"
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
 
 # nächste Schritte: Ausflüge erfassen im Excel
+# Preis

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Budgeterfassung</title>
+</head>
+<body>
+<h1>Was willst du heute machen?</h1>
+
+  <!--  value = was auf der Datenbank, alles klein in csv / Label = was er anzeigt-->
+<p>Für diesen Monat stehen noch CHF {{ uebrig }} zur Verfügung</p>
+<p>Bitte wähle alle deine gewünschten Kriterien für deinen nächsten Ausflug.</p>
+<form action="kriterien-erfassen" method="post">
+    <input type="checkbox" name="kategorie0" value="" required>
+    <label for="kategorie0">Winter</label>
+    <input type="checkbox" name="kategorie1" value="" required>
+    <label for="kategorie2">Sommer</label>
+    <input type="checkbox" name="kategorie2" value="" required>
+    <label for="kategorie3">Outdoor</label>
+    <input type="checkbox" name="kategorie3" value="" required>
+    <label for="kategorie4">Indoor</label>
+</form>
+
+</body>
+</html>
