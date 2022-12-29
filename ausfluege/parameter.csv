@@ -1,0 +1,20 @@
+﻿value;label;kind;type
+winter;Winter;category;checkbox
+sommer;Sommer;category;checkbox
+outdoor;Outdoor;category;checkbox
+indoor;Indoor;category;checkbox
+action;Action;category;checkbox
+gemuetlich;Gemütlich;category;checkbox
+essen;Essen;category;checkbox
+getraenke;Getränke;category;checkbox
+pubs;Pubs, Bars, Clubs;category;checkbox
+sport;Sport;category;checkbox
+2tage;Zweitagesausflug;category;checkbox
+entspannen;Entspannen;category;checkbox
+0;Gratis Aktivitäten;price;radio
+25;unter CHF 25;price;radio
+50;CHF 25 bis 50;price;radio
+100;ab CHF 50;price;radio
+1;für mich alleine;person;radio
+2;zu zweit;person;radio
+3;in einer Gruppe;person;radio

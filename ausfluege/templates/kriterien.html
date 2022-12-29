@@ -7,18 +7,25 @@
 <body>
 <h1>Was willst du heute machen?</h1>
 
-  <!--  value = was auf der Datenbank, alles klein in csv / Label = was er anzeigt-->
+  <!--  value = was auf der Datenbank, alles klein in csv / Label = was er anzeigt im Tool
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio
+https://www.digitalocean.com/community/tutorials/how-to-use-templates-in-a-flask-application
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox-->
+
 <p>Für diesen Monat stehen noch CHF {{ uebrig }} zur Verfügung</p>
 <p>Bitte wähle alle deine gewünschten Kriterien für deinen nächsten Ausflug.</p>
 <form action="kriterien-erfassen" method="post">
-    <input type="checkbox" name="kategorie0" value="" required>
-    <label for="kategorie0">Winter</label>
-    <input type="checkbox" name="kategorie1" value="" required>
-    <label for="kategorie2">Sommer</label>
-    <input type="checkbox" name="kategorie2" value="" required>
-    <label for="kategorie3">Outdoor</label>
-    <input type="checkbox" name="kategorie3" value="" required>
-    <label for="kategorie4">Indoor</label>
+    <fieldset>
+      <legend>Wähle die Kategorien</legend>
+        {% for kriterium in kategorien %}
+      <div>
+        <input type="{{ kriterium.type }}" id="{{ kriterium.value }}" name="{{ kriterium.kind }}" value="{{ kriterium.value }}" />
+        <label for="{{ kriterium.value }}">{{ kriterium.label }}</label>
+      </div>
+        {% endfor %}
+    </fieldset>
+<p>Für wie viele Personen soll der Ausflug sein?</p>
+<p>In welchem Preissegment willst du dich bewegen?</p>
 </form>
 
 </body>
