@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Idee auswählen</title>
+
+</head>
+<body>
+<h1>Idee auswählen</h1>
+<form action="ausflug-buchen" method="post">
+    <fieldset>
+      <legend>Wähle aus folgenden Ideen für den Ausflug {{ ausflugID }}</legend>
+        {% for idee in ausflug.ideen %}
+      <div>
+        <input type="radio" id="{{ idee }}" name="idee" value="{{ idee }}" />
+        <label for="{{ idee }}">{{ idee }} </label>
+        <input type="hidden" id="ausflugID" name="ausflugID" value="{{ ausflug.ausflugID }}">
+        <input type="hidden" id="kosten" name="kosten" value="{{ ausflug.kosten }}">
+      </div>
+        {% endfor %}
+    </fieldset>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

@@ -1,20 +1,20 @@
 ﻿value;label;kind;type
-winter;Winter;category;checkbox
-sommer;Sommer;category;checkbox
-outdoor;Outdoor;category;checkbox
-indoor;Indoor;category;checkbox
-action;Action;category;checkbox
-gemuetlich;Gemütlich;category;checkbox
-essen;Essen;category;checkbox
-getraenke;Getränke;category;checkbox
-pubs;Pubs, Bars, Clubs;category;checkbox
-sport;Sport;category;checkbox
-2tage;Zweitagesausflug;category;checkbox
-entspannen;Entspannen;category;checkbox
+Winter;Winter;category;checkbox
+Sommer;Sommer;category;checkbox
+Outdoor;Outdoor;category;checkbox
+Indoor;Indoor;category;checkbox
+Action;Action;category;checkbox
+Gemuetlich;Gemütlich;category;checkbox
+Essen;Essen;category;checkbox
+Getraenke;Getränke;category;checkbox
+Pubs;Pubs, Bars, Clubs;category;checkbox
+Sport;Sport;category;checkbox
+Zweitagesausflug;Zweitagesausflug;category;checkbox
+Entspannen;Entspannen;category;checkbox
 0;Gratis Aktivitäten;price;radio
 25;unter CHF 25;price;radio
-50;CHF 25 bis 50;price;radio
-100;ab CHF 50;price;radio
+50;höchstens 50;price;radio
+9999;beliebig;price;radio
 1;für mich alleine;person;radio
 2;zu zweit;person;radio
 3;in einer Gruppe;person;radio

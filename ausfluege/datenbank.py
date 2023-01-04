@@ -7,7 +7,7 @@ import csv
 from datetime import date
 from datetime import datetime
 from datenklassen import Selektionskriterium
-
+from datenklassen import Ausflug
 def date_from_string(datum_string): #Datum kommt als String rein und als Date zurück
    return datetime.strptime(datum_string, '%Y-%m-%d').date()
 
@@ -33,7 +33,7 @@ def budget_einlesen(): #fixe CSV Datei (name in erster Linie), darum braucht es 
             if datum.year == today.year and datum.month == today.month: #wenn die Daten aus dem aktuellen Monat sind
                 return row; #row ist ein dict
         return {}
-def parameter_einlesen(): #Kriterien
+def parameter_einlesen(): #Kriterien (parameter.csv)
     with open('parameter.csv', mode='r', encoding='utf-8-sig') as csv_file:
         csv_reader = csv.DictReader(csv_file, delimiter=';')
         kriterien = []
@@ -41,3 +41,11 @@ def parameter_einlesen(): #Kriterien
             kriterium = Selektionskriterium(row['value'], row['label'], row['kind'], row['type'])
             kriterien.append(kriterium)
         return kriterien
+def ausfluege_einlesen(): #ausfluege.csv
+    with open('ausfluege.csv', mode='r', encoding='utf-8-sig') as csv_file:
+        csv_reader = csv.DictReader(csv_file, delimiter=';')
+        ausfluege = []
+        for row in csv_reader:
+            ausflug = Ausflug(row['ausflugId'], int(row['min']), int(row['max']), int(row['kosten']), row['kategorien'].split(','), row['ideen'].split(','))
+            ausfluege.append(ausflug)
+        return ausfluege

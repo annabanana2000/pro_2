@@ -1,56 +1,56 @@
 ﻿ausflugId;min;max;kosten;kategorien;ideen
-Skifahren;1;3;100;Winter,Outdoor;Arosa-Lenzerheide, Davos, Engelberg
-Schlitteln;1;3;50;Winter,Outdoor;Bergün, Lenzerheide, Rigi
-Schlittschuhlaufen;1;3;25;Winter,Outdoor;Dolder Kunsteisbahn, ICE MAGIC Interlaken, Eisweg Engadin
+Skifahren;1;3;100;Winter,Outdoor;Arosa-Lenzerheide,Davos,Engelberg
+Schlitteln;1;3;50;Winter,Outdoor;Bergün,Lenzerheide,Rigi
+Schlittschuhlaufen;1;3;25;Winter,Outdoor;Dolder Kunsteisbahn,ICE MAGIC Interlaken,Eisweg Engadin
 Snow Tube;2;3;25;Winter,Outdoor;Tobogganing Park 
-Langlaufen;1;3;100;Winter,Outdoor;Davos, Engelberg, Engadin
+Langlaufen;1;3;100;Winter,Outdoor;Davos,Engelberg,Engadin
 Übernachtung im Iglu;1;3;100;Winter,Outdoor;Adelboden
 Schneetöff ;1;3;100;Winter,Outdoor;
-Fonduetram;2;3;100;Winter,Indoor;Fonduetram Zürich, Fonduetram Bern
-Spazieren;1;3;0;Gemütlich,Outdoor;Flachsee, Hallwilersee, entlang der Reuss
-Velotour;1;3;0;Outdoor,Sport;Bodensee-Radweg, Rund um die Churfirsten, Töss-Jona-Route
+Fonduetram;2;3;100;Winter,Indoor;Fonduetram Zürich,Fonduetram Bern
+Spazieren;1;3;0;Gemütlich,Outdoor;Flachsee,Hallwilersee,entlang der Reuss
+Velotour;1;3;0;Outdoor,Sport;Bodensee-Radweg,Rund um die Churfirsten,Töss-Jona-Route
 Volleyball;2;3;0;Indoor,Outdoor;
-Wandern;1;3;0;Outdoor,Sport;Fünfseenwanderum am Pizol, Aletschgletscher--Weg, Von Grindelwald-First auf das Faulhorn
+Wandern;1;3;0;Outdoor,Sport;Fünfseenwanderum am Pizol,Aletschgletscher--Weg,Von Grindelwald-First auf das Faulhorn
 Fussball;2;3;0;Outdoor,Sport;
-Minigolf ;2;3;25;Indoor,Outdoor;Galaxy Golf Rümlang, ACTIONWORLD Ottenbach, Minigolfanlage Dägerli
-Zoo;1;3;25;Gemütlich,Outdoor;Zürich Zoo, Zoo Basel
+Minigolf ;2;3;25;Indoor,Outdoor;Galaxy Golf Rümlang,ACTIONWORLD Ottenbach,Minigolfanlage Dägerli
+Zoo;1;3;25;Gemütlich,Outdoor;Zürich Zoo,Zoo Basel
 Squashen;2;3;25;Indoor,Sport;
-Museum;1;3;25;Gemütlich,Indoor;Museum für Gestaltung, Fondation Beyeler, Kunsmuseum Zürich
-Konzert ;1;3;100;Indoor,Outdoor;Hallenstadion, Ticketcorner, Halle 622
+Museum;1;3;25;Gemütlich,Indoor;Museum für Gestaltung,Fondation Beyeler,Kunsmuseum Zürich
+Konzert ;1;3;100;Indoor,Outdoor;Hallenstadion,Ticketcorner,Halle 622
 Theater;1;3;100;Indoor;
-Kino;1;3;25;Indoor;Arena Cinema Sihlcity, Pathe Spreitenbach
-Bowling;2;3;25;Indoor;Prestige Bowling Bremgarten, Bowling West Schlieren, Bowling Universum Dietlikon
-Wellness;1;3;100;Indoor,Entspannen;FORTYSEVEN Wellness-Therme Baden, Hürlimannbad & Spa Zürich, Tamina Therme Bad Ragaz
-Aquapark;1;3;50;Indoor,Action;Säntispark, Aqua Basilea, Alpamare
-Rodeln;1;3;25;Outdoor,Action,Sommer;Rodelbahn Pradaschier Churwalden, Kronberg Bobbahn, Sommerrodelbahn Hochstuckli
-Klettern;1;3;25;Indoor,Outdoor, Sport,Action;
+Kino;1;3;25;Indoor;Arena Cinema Sihlcity,Pathe Spreitenbach
+Bowling;2;3;25;Indoor;Prestige Bowling Bremgarten,Bowling West Schlieren,Bowling Universum Dietlikon
+Wellness;1;3;100;Indoor,Entspannen;FORTYSEVEN Wellness-Therme Baden,Hürlimannbad & Spa Zürich,Tamina Therme Bad Ragaz
+Aquapark;1;3;50;Indoor,Action;Säntispark,Aqua Basilea,Alpamare
+Rodeln;1;3;25;Outdoor,Action,Sommer;Rodelbahn Pradaschier Churwalden,Kronberg Bobbahn,Sommerrodelbahn Hochstuckli
+Klettern;1;3;25;Indoor,Outdoor,Sport,Action;
 Bouldern;1;3;25;Indoor,Sport;
 Seilpark;1;3;25;Outdoor,Sport,Action;
 Zipline;1;3;100;Outdoor,Sport,Action;
-Backen;1;3;25;Gemütlich,Indoor;Spitzbuben, Tiroler Cake, Knoblauchzopf
+Backen;1;3;25;Gemütlich,Indoor;Spitzbuben,Tiroler Cake,Knoblauchzopf
 Picknicken;2;3;25;Gemütlich,Outdoor;
-Cocktails mixen;1;3;50;Gemütlich,Indoor,Drinks;Amaretto Sour, Mojito, Negroni
-Film schauen;1;3;0;Gemütlich,Indoor;Enola Holmes, Inception, Ziemlich beste Freunde
-neue Serie beginnen;1;3;0;Gemütlich,Indoor;The Blacklist, Emily in Paris, Limitless
-Spielabend;2;3;0;Gemütlich,Indoor;Die Siedler von Catan, Brändi Dog, Uno
-Essen gehen;1;3;50;Indoor,Essen;Le Cèdre, El Mosquito, QQ Sushi
-Kochkurs;1;3;100;Indoor;Japanisch, Mexikanisch, Indisch
-Pub Crawl;1;3;25;Indoor,Pubs/Bar/Club;Zürich, Luzern, Bern
-Wanderung mit Übernachtung in SAC Hütte;1;3;50;Outdoor,Sport;
-Escape Room;2;3;50;Action,Indoor;Hidden Games Zürich, ACTIONWORLD Ottenbach, AdventureRooms Baden
+Cocktails mixen;1;3;50;Gemütlich,Indoor,Drinks;Amaretto Sour,Mojito,Negroni
+Film schauen;1;3;0;Gemütlich,Indoor;Enola Holmes,Inception,Ziemlich beste Freunde
+neue Serie beginnen;1;3;0;Gemütlich,Indoor;The Blacklist,Emily in Paris,Limitless
+Spielabend;2;3;0;Gemütlich,Indoor;Die Siedler von Catan,Brändi Dog,Uno
+Essen gehen;1;3;50;Indoor,Essen;Le Cèdre,El Mosquito,QQ Sushi
+Kochkurs;1;3;100;Indoor;Japanisch,Mexikanisch,Indisch
+Pub Crawl;1;3;25;Indoor,Pubs/Bar/Club;Zürich,Luzern,Bern
+Wanderung mit Übernachtung in SAC Hütte;1;3;50;Outdoor,Sport;Zweitagesausflug
+Escape Room;2;3;50;Action,Indoor;Hidden Games Zürich,ACTIONWORLD Ottenbach,AdventureRooms Baden
 Grillabend;2;3;50;Outdoor,Gemütlich;
 Grand Tour of Switzerland;1;3;0;Outdoor;https://grandtour.myswitzerland.com/de/
-Streetfood Festival;1;3;0;Sommer,Outdoor;Zürich, Bern, Basel
+Streetfood Festival;1;3;0;Sommer,Outdoor;Zürich,Bern,Basel
 Streetparade;1;3;0;Sommer,Outdoor;Zürich
-Wildpark;1;3;0;Outdoor;Wildnispark Zürich Langenberg, Wildpark Bruderhaus Winterthur, Wildpark Roggenhausen
+Wildpark;1;3;0;Outdoor;Wildnispark Zürich Langenberg,Wildpark Bruderhaus Winterthur,Wildpark Roggenhausen
 Juckerfarm;1;3;0;Outdoor;https://www.juckerfarm.ch/
 Schlucht besuchen;1;3;0;Outdoor;Aareschlucht
 Tischtennis;2;3;0;Outdoor,Sport;
-Baden in See / Fluss;1;3;0;Outdoor,Sommer;Limmat, Hallwilersee, Klönthalersee
-Bötle;2;3;0;Outdoor,Sommer;Aarebötle, Limmat, Bremgarten
+Baden in See / Fluss;1;3;0;Outdoor,Sommer;Limmat,Hallwilersee,Klönthalersee
+Bötle;2;3;0;Outdoor,Sommer;Aarebötle,Limmat,Bremgarten
 Fallschirmspringen;1;3;100;Outdoor,Sport,Action;
-Alpaka Trekking;2;3;100;Outdoor;Bauma, Bern
-Buch lesen;1;1;0;Gemütlich,Indoor,Outdoor;Das Cafe am Rande der Welt, Everything is Fucked, When Breath becomes Air
-Club;1;3;50;Indoor,Pubs/Bar/Club;Hive, Zukunft, Mempis
-Stand Up Paddle;1;2;50;Outdoor,Sommer,Action;Klönthalersee, Hallwilersee, Reuss
-Match schauen;1;3;25;Indoor,Outdoor,Sport;Fussball, Eishockey, Unihockey
+Alpaka Trekking;2;3;100;Outdoor;Bauma,Bern
+Buch lesen;1;1;0;Gemütlich,Indoor,Outdoor;Das Cafe am Rande der Welt,Everything is Fucked,When Breath becomes Air
+Club;1;3;50;Indoor,Pubs/Bar/Club;Hive,Zukunft,Mempis
+Stand Up Paddle;1;2;50;Outdoor,Sommer,Action;Klönthalersee,Hallwilersee,Reuss
+Match schauen;1;3;25;Indoor,Outdoor,Sport;Fussball,Eishockey,Unihockey

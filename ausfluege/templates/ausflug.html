@@ -2,11 +2,23 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Ausflugsplanung</title>
+    <title>Ausflug auswählen</title>
+
 </head>
 <body>
-<h1>Ausflugsplanung</h1>
-
+<h1>Ausflug auswählen</h1>
+<form action="ideen-anzeigen" method="post">
+    <fieldset>
+      <legend>Wähle deinen Ausflug</legend>
+        {% for ausflug in ausfluege %}
+      <div>
+        <input type="radio" id="{{ ausflug.ausflugID }}" name="ausflugID" value="{{ ausflug.ausflugID }}" />
+        <label for="{{ ausflug.ausflugID }}">{{ ausflug.ausflugID }} (CHF {{ ausflug.kosten }}) </label>
+      </div>
+        {% endfor %}
+    </fieldset>
+    <input type="submit" value="Submit">
+</form>
 
 </body>
 </html>

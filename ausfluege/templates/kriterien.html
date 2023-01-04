@@ -24,8 +24,27 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox-->
       </div>
         {% endfor %}
     </fieldset>
-<p>Für wie viele Personen soll der Ausflug sein?</p>
-<p>In welchem Preissegment willst du dich bewegen?</p>
+
+    <fieldset>
+      <legend>Für wie viele Personen soll der Ausflug sein?</legend>
+        {% for kriterium in preise %}
+      <div>
+        <input type="{{ kriterium.type }}" id="{{ kriterium.value }}" name="{{ kriterium.kind }}" value="{{ kriterium.value }}" />
+        <label for="{{ kriterium.value }}">{{ kriterium.label }}</label>
+      </div>
+        {% endfor %}
+    </fieldset>
+
+    <fieldset>
+      <legend>In welchem Preissegment willst du dich bewegen?</legend>
+        {% for kriterium in personen %}
+      <div>
+        <input type="{{ kriterium.type }}" id="{{ kriterium.value }}" name="{{ kriterium.kind }}" value="{{ kriterium.value }}" />
+        <label for="{{ kriterium.value }}">{{ kriterium.label }}</label>
+      </div>
+        {% endfor %}
+    </fieldset>
+    <input type="submit" value="Submit">
 </form>
 
 </body>
