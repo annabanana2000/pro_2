@@ -2,10 +2,13 @@ from flask import Flask
 from werkzeug.datastructures import MultiDict
 
 from datenklassen import Ausflug
+from datenklassen import Buchung
 from datenbank import budget_einlesen
 from datenbank import budget_abspeichern
 from datenbank import parameter_einlesen
 from datenbank import ausfluege_einlesen
+from datenbank import buchung_einlesen
+from datenbank import buchung_abspeichern
 from flask import render_template
 from flask import redirect
 from flask import request
@@ -16,7 +19,7 @@ app = Flask("Ausflüge")
 #Quelle: https://www.geeksforgeeks.org/python-check-if-dictionary-is-empty/, um zu schauen ob Dict leer
 def ausflug():
     finanzen = budget_einlesen()
-    if len(finanzen) == 0:
+    if finanzen is None:
         return redirect('budget-erfassen')
     else:
         return redirect('kriterien-erfassen')
@@ -35,16 +38,16 @@ def kritierien_erfassen():
     if request.method == 'GET':
 
         # berechnen von Rest Budget
-        finanzen = budget_einlesen()
-        budget_monat = int(finanzen['budget'])
-        ausgegeben_monat = int(finanzen['spent'])
-        uebrig_monat = budget_monat - ausgegeben_monat
+        budget = budget_einlesen()
+        uebrig_monat = budget.monatslimit - budget.spent
 
 #Ermittlung von Parametern für kriterien.html
         kriterien = parameter_einlesen()
+        budget = budget_einlesen()
+        uebrig_monat = budget.monatslimit - budget.spent
         kategorien = filter(filter_category, kriterien)
-        preise = filter(filter_price, kriterien)
-        # TO DO Filter Preis darf nicht grösser sein als restliches Budget
+        # Filter, dass nur Aktivitäten angezeigt werden, welche im Budget liegen
+        preise = [k for k in kriterien if k.kind == 'price' and int(k.value) <= uebrig_monat]
         personen = filter(filter_person, kriterien)
 
 #rot = html / weiss = für py
@@ -66,18 +69,17 @@ def ausflug_buchen():
     ausflugID = request.form['ausflugID']
     idee = request.form['idee']
     kosten = int(request.form['kosten'])
-    finanzen = budget_einlesen()
-    budget_monat = int(finanzen['budget'])
-    ausgegeben_monat = int(finanzen['spent']) + kosten
-    budget_abspeichern(budget_monat, ausgegeben_monat)
-    return render_template('bestaetigung.html', ausflugID = ausflugID, kosten = kosten, idee = idee, ausgegeben = ausgegeben_monat, budget = budget_monat)
+    budget = budget_einlesen()
+    ausgegeben_monat = budget.spent + kosten
+    budget_abspeichern(budget.monatslimit, ausgegeben_monat)
+    buchung_abspeichern(ausflugID, idee, kosten)
+    buchungen = buchung_einlesen()
+    return render_template('bestaetigung.html', ausflugID = ausflugID, kosten = kosten, idee = idee, ausgegeben = ausgegeben_monat, budget = budget.monatslimit, buchungen = buchungen)
 
 # https://www.programiz.com/python-programming/methods/built-in/filter
 # a function that returns true if criterium is of kind category
 def filter_category(kriterium):
     return kriterium.kind == 'category'
-def filter_price(kriterium):
-    return kriterium.kind == 'price'
 def filter_person(kriterium):
     return kriterium.kind == 'person'
 

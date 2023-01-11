@@ -1,8 +1,10 @@
 # Quelle wie man Klassen macht https://docs.python.org/3/tutorial/classes.html 9.7
 # Quelle für die listen https://stackoverflow.com/questions/57690749/how-to-declare-an-array-or-a-list-in-a-python-dataclass
 from dataclasses import dataclass
-
+from datetime import date
 from werkzeug.datastructures import MultiDict
+
+#Datenklassen werden gemacht, damit man nicht überall aus den Dict / strings arbeiten muss. Somit wird der Code leserlicher
 
 
 #frozen macht das Objekt unveränderlich
@@ -21,4 +23,16 @@ class Ausflug:
     kategorien: list[str]
     ideen: list[str]
 
+@dataclass(frozen=True)
+class Budget:
+    date: date
+    monatslimit: int
+    spent: int
+
+@dataclass(frozen=True)
+class Buchung:
+    date: date
+    ausflugID: str
+    idee: str
+    kosten: int
 

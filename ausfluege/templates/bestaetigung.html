@@ -9,6 +9,24 @@
 <h1>Deine Wahl</h1>
 <p>Du hast die Idee {{ idee }} des Ausflugs {{ ausflugID }} für CHF {{ kosten }} ausgewählt.
 Dein monatliches Budget beträgt CHF {{ budget }} von dem du nun CHF {{ ausgegeben }} ausgegben hast.</p>
-
+<table>
+    <thead>
+      <tr>
+          <th>Datum</th>
+          <th>Ausflug</th>
+          <th>Idee</th>
+          <th>Kosten</th>
+      </tr>
+      {% for buchung in buchungen %}
+      <tr>
+        <td>{{ buchung.date }}</td>
+        <td>{{ buchung.ausflugID }}</td>
+        <td>{{ buchung.idee }}</td>
+          <td>{{ buchung.kosten }}</td>
+      </tr>
+      {% endfor %}
+    </thead>
+</table>
+<!-- Link zum Start fehlt noch -->
 </body>
 </html>

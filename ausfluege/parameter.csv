@@ -14,7 +14,7 @@ Entspannen;Entspannen;category;checkbox
 0;Gratis Aktivitäten;price;radio
 25;unter CHF 25;price;radio
 50;höchstens 50;price;radio
-9999;beliebig;price;radio
+100;bis zu 100;price;radio
 1;für mich alleine;person;radio
 2;zu zweit;person;radio
 3;in einer Gruppe;person;radio
