@@ -1,5 +1,7 @@
+<!--- https://wiki.selfhtml.org/wiki/HTML/Elemente/button  Buttons-->
+
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Ausflug auswählen</title>
@@ -17,7 +19,10 @@
       </div>
         {% endfor %}
     </fieldset>
-    <input type="submit" value="Submit">
+    <!Wenn man auf diese Buttons drückt, springt es zu ideen-anzeigen. Dies ist ersichtlich im Form Tag oben-->
+    <button type="submit" name="button" value="back">Zurück</button>
+    <button type="submit" name="button" value="select">Auswählen</button>
+
 </form>
 
 </body>

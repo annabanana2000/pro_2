@@ -5,7 +5,7 @@ from datetime import date
 from werkzeug.datastructures import MultiDict
 
 #Datenklassen werden gemacht, damit man nicht überall aus den Dict / strings arbeiten muss. Somit wird der Code leserlicher
-
+# Hier wird definiert, welche Felder eine Klasse hat
 
 #frozen macht das Objekt unveränderlich
 @dataclass(frozen=True)
@@ -35,4 +35,5 @@ class Buchung:
     ausflugID: str
     idee: str
     kosten: int
+
 

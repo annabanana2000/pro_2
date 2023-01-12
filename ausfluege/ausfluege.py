@@ -1,8 +1,9 @@
 from flask import Flask
 from werkzeug.datastructures import MultiDict
-
+from datetime import date
 from datenklassen import Ausflug
 from datenklassen import Buchung
+from datenklassen import Budget
 from datenbank import budget_einlesen
 from datenbank import budget_abspeichern
 from datenbank import parameter_einlesen
@@ -30,8 +31,9 @@ def budget_erfassen():
     if request.method == 'GET':
         return render_template('budget.html')
     else:  # request.method == 'POST'
-        budget = int(request.form['budget'])
-        budget_abspeichern(budget, 0)
+        monatslimit = int(request.form['budget'])
+        budget_neu = Budget(date.today(), monatslimit, 0)
+        budget_abspeichern(budget_neu)
         return redirect('/kriterien-erfassen')
 @app.route('/kriterien-erfassen', methods=['GET', 'POST'])
 def kritierien_erfassen():
@@ -60,21 +62,27 @@ def kritierien_erfassen():
 
 @app.route('/ideen-anzeigen', methods=['POST']) #app.route ist URL, die ausgeführt wird
 def ideen_anzeigen():
+    button = request.form['button']
+    if button == 'back':
+        return 'wir gehen zurück'
     alle_ausfluege = ausfluege_einlesen()
     ausflugID = request.form['ausflugID']
     ausflug = next(ausflug for ausflug in alle_ausfluege if ausflug.ausflugID == ausflugID)
-    return render_template('ideen.html', ausflug = ausflug)
+    button = request.form['button']
+
 @app.route('/ausflug-buchen', methods=['POST'])
 def ausflug_buchen():
     ausflugID = request.form['ausflugID']
     idee = request.form['idee']
     kosten = int(request.form['kosten'])
-    budget = budget_einlesen()
-    ausgegeben_monat = budget.spent + kosten
-    budget_abspeichern(budget.monatslimit, ausgegeben_monat)
-    buchung_abspeichern(ausflugID, idee, kosten)
+    budget_alt = budget_einlesen()
+    ausgegeben_monat = budget_alt.spent + kosten
+    budget_neu = Budget(date.today(), budget_alt.monatslimit, ausgegeben_monat)
+    budget_abspeichern(budget_neu)
+    buchung = Buchung(date.today(), ausflugID, idee, kosten)
+    buchung_abspeichern(buchung)
     buchungen = buchung_einlesen()
-    return render_template('bestaetigung.html', ausflugID = ausflugID, kosten = kosten, idee = idee, ausgegeben = ausgegeben_monat, budget = budget.monatslimit, buchungen = buchungen)
+    return render_template('bestaetigung.html', ausflugID = ausflugID, kosten = kosten, idee = idee, ausgegeben = ausgegeben_monat, budget = budget_alt.monatslimit, buchungen = buchungen)
 
 # https://www.programiz.com/python-programming/methods/built-in/filter
 # a function that returns true if criterium is of kind category
@@ -82,7 +90,6 @@ def filter_category(kriterium):
     return kriterium.kind == 'category'
 def filter_person(kriterium):
     return kriterium.kind == 'person'
-
 def selektion_passt(ausflug : Ausflug, selektion: MultiDict):
     for angeklickt in selektion.items():
         kind, value = angeklickt
@@ -98,10 +105,6 @@ def selektion_passt(ausflug : Ausflug, selektion: MultiDict):
             if anzahl < ausflug.min or anzahl > ausflug.max:
                 return False
     return True
-
-
-
-
 
 if __name__ == "__main__":
     app.run(debug=True, port=5001)
