@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <meta charset="UTF-8">
     <title>Bisherige Ausflüge</title>
 
 </head>
 <body>
 <h1>Deine bisherigen Ausflüge</h1>
-<table>
+<table class="table table-dark">
     <thead>
       <tr>
           <th>Datum</th>
@@ -26,7 +27,10 @@
     </thead>
 </table>
 <form action="kriterien-erfassen" method="get">
-    <button type="submit" name="button" value="select">neuer Ausflug</button>
+    <button type="submit" name="button" value="select" class="btn btn-dark">neuer Ausflug</button>
+    </form>
+<form action="zuruecksetzen" method="post">
+    <button type="submit" name="button" value="select" class="btn btn-dark">Datenbank zurücksetzen</button>
     </form>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <meta charset="UTF-8">
     <title>Budgeterfassung</title>
 </head>
@@ -29,8 +30,8 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox-->
         <legend>In welchem Preissegment willst du dich bewegen?</legend>
         {% for kriterium in preise %}
         <div>
-            <input type="{{ kriterium.type }}" id="{{ kriterium.value }}" name="{{ kriterium.kind }}" value="{{ kriterium.value }}" {% if loop.first %} checked  {% endif %}/>
-        <label for="{{ kriterium.value }}">{{ kriterium.label }}</label>
+            <input class="form-check-input" type="{{ kriterium.type }}" id="{{ kriterium.value }}" name="{{ kriterium.kind }}" value="{{ kriterium.value }}" {% if loop.first %} checked  {% endif %}/>
+        <label class="form-check-label" for="{{ kriterium.value }}">{{ kriterium.label }}</label>
       </div>
         {% endfor %}
     </fieldset>
@@ -39,12 +40,12 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox-->
       <legend>Für wie viele Personen soll der Ausflug sein?</legend>
         {% for kriterium in personen %}
         <div>
-            <input type="{{ kriterium.type }}" id="{{ kriterium.value }}" name="{{ kriterium.kind }}" value="{{ kriterium.value }}" {% if loop.first %} checked  {% endif %}/>
-            <label for="{{ kriterium.value }}">{{ kriterium.label }}</label>
+            <input class="form-check-input" type="{{ kriterium.type }}" id="{{ kriterium.value }}" name="{{ kriterium.kind }}" value="{{ kriterium.value }}" {% if loop.first %} checked  {% endif %}/>
+            <label class="form-check-label" for="{{ kriterium.value }}">{{ kriterium.label }}</label>
         </div>
         {% endfor %}
     </fieldset>
-    <button type="submit" name="button" value="select">Auswählen</button>
+    <button type="submit" name="button" value="select" class="btn btn-dark">Auswählen</button>
 </form>
 
 </body>

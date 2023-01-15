@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <meta charset="UTF-8">
     <title>Budgeterfassung</title>
 </head>
@@ -10,7 +11,7 @@
 <form action="budget-erfassen" method="post">
     <label for="budget">Budget für diesen Monat</label>
     <input type="number" name="budget" value="" required>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" class="btn btn-dark">
 </form>
 
 </body>

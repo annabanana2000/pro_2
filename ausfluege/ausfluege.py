@@ -10,6 +10,7 @@ from datenbank import parameter_einlesen
 from datenbank import ausfluege_einlesen
 from datenbank import buchung_einlesen
 from datenbank import buchung_abspeichern
+from datenbank import budget_und_buchung_zuruecksetzen
 from flask import render_template
 from flask import redirect
 from flask import request
@@ -92,6 +93,12 @@ def ausflug_buchen():
     buchungen = buchung_einlesen()
     return render_template('bestaetigung.html', ausflugID = ausflugID, kosten = kosten, idee = idee, ausgegeben = ausgegeben_monat, budget = budget_alt.monatslimit, buchungen = buchungen)
 
+@app.route('/zuruecksetzen', methods=['POST'])
+def zuruecksetzen():
+    budget_und_buchung_zuruecksetzen()
+    return redirect('/budget-erfassen')
+
+
 # https://www.programiz.com/python-programming/methods/built-in/filter
 # a function that returns true if criterium is of kind category
 
@@ -120,4 +127,4 @@ def selektion_passt(ausflug : Ausflug, selektion: MultiDict):
     return True
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app.run(debug=True, port=5002)

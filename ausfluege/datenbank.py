@@ -13,13 +13,16 @@ from datenklassen import Buchung
 def date_from_string(datum_string): #Datum kommt als String rein und als Date zurück
    return datetime.strptime(datum_string, '%Y-%m-%d').date()
 
+def get_budget_writer(csv_file):
+    fieldnames = ['date', 'monatslimit', 'spent']
+    writer = csv.DictWriter(csv_file, fieldnames=fieldnames, delimiter=';')
+    return writer
 
 #hier werden die Werte in der CSV Datei abgespeichert
 def budget_abspeichern(budget):
     today = date.today() #wird von hier ausgewertet
     with open('budget.csv', mode='w') as csv_file: #mode w = writing
-        fieldnames = ['date', 'monatslimit', 'spent']
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames, delimiter=';')
+        writer = get_budget_writer(csv_file)
         writer.writeheader()
         # Dict der die Werte herausgibt
         writer.writerow({'date': budget.date, 'monatslimit': budget.monatslimit, 'spent': budget.spent})
@@ -52,10 +55,13 @@ def ausfluege_einlesen(): #ausfluege.csv
             ausflug = Ausflug(row['ausflugId'], int(row['min']), int(row['max']), int(row['kosten']), row['kategorien'].split(','), row['ideen'].split(','))
             ausfluege.append(ausflug)
         return ausfluege
+def get_buchung_writer(csv_file):
+    fieldnames = ['date', 'ausflugID', 'idee', 'kosten']
+    writer = csv.DictWriter(csv_file, fieldnames=fieldnames, delimiter=';')
+    return writer
 def buchung_abspeichern(buchung):
     with open('buchungen.csv', mode='a') as csv_file: #mode a = append
-        fieldnames = ['date', 'ausflugID', 'idee', 'kosten']
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames, delimiter=';')
+        writer = get_buchung_writer(csv_file)
         writer.writerow({'date':buchung.date, 'ausflugID': buchung.ausflugID, 'idee': buchung.idee, 'kosten': buchung.kosten})
 def buchung_einlesen():
     with open('buchungen.csv', mode='r', encoding='utf-8-sig') as csv_file:
@@ -66,3 +72,12 @@ def buchung_einlesen():
             buchung = Buchung(datum, row['ausflugID'], row['idee'], int(row['kosten']))
             buchungen.append(buchung)
         return buchungen
+
+def budget_und_buchung_zuruecksetzen():
+    # mit 'w' wird hier das Budget und die Buchungen geleert
+    with open('budget.csv', mode='w') as csv_file:
+        budget_writer = get_budget_writer(csv_file)
+        budget_writer.writeheader()
+    with open('buchungen.csv', mode='w') as csv_file:
+        buchung_writer = get_buchung_writer(csv_file)
+        buchung_writer.writeheader()

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <meta charset="UTF-8">
     <title>Idee auswählen</title>
 
@@ -13,15 +14,15 @@
         {% for idee in ausflug.ideen %}
       <div>
 
-        <input type="radio" id="{{ idee }}" name="idee" value="{{ idee }}" {% if loop.first %} checked  {% endif %}/>
-        <label for="{{ idee }}">{{ idee }} </label>
+        <input type="radio" class="form-check-input" id="{{ idee }}" name="idee" value="{{ idee }}" {% if loop.first %} checked  {% endif %}/>
+        <label class="form-check-label" for="{{ idee }}">{{ idee }} </label>
         <input type="hidden" id="ausflugID" name="ausflugID" value="{{ ausflug.ausflugID }}">
         <input type="hidden" id="kosten" name="kosten" value="{{ ausflug.kosten }}">
       </div>
         {% endfor %}
     </fieldset>
-    <button type="submit" name="button" value="back">Zurück</button>
-    <button type="submit" name="button" value="select">Auswählen</button>
+    <button type="submit" name="button" value="back" class="btn btn-dark">Zurück</button>
+    <button type="submit" name="button" value="select"class="btn btn-dark">Auswählen</button>
 </form>
 
 </body>

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="de" xmlns="http://www.w3.org/1999/html">
 <head>
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <meta charset="UTF-8">
     <title>Ausflug auswählen</title>
 
@@ -14,14 +15,14 @@
       <legend>Wähle deinen Ausflug</legend>
         {% for ausflug in ausfluege %}
       <div>
-          <input type="radio" id="{{ ausflug.ausflugID }}" name="ausflugID" value="{{ ausflug.ausflugID }}" {% if loop.first %} checked  {% endif %}/>
-        <label for="{{ ausflug.ausflugID }}">{{ ausflug.ausflugID }} (CHF {{ ausflug.kosten }}) </label>
+          <input type="radio" class="form-check-input" id="{{ ausflug.ausflugID }}" name="ausflugID" value="{{ ausflug.ausflugID }}" {% if loop.first %} checked  {% endif %}/>
+        <label class="form-check-label for="{{ ausflug.ausflugID }}">{{ ausflug.ausflugID }} (CHF {{ ausflug.kosten }}) </label>
       </div>
         {% endfor %}
     </fieldset>
     <!Wenn man auf diese Buttons drückt, springt es zu ideen-anzeigen. Dies ist ersichtlich im Form Tag oben-->
-    <button type="submit" name="button" value="back">Zurück</button>
-    <button type="submit" name="button" value="select">Auswählen</button>
+    <button type="submit" name="button" value="back" class="btn btn-dark">Zurück</button>
+    <button type="submit" name="button" value="select" class="btn btn-dark">Auswählen</button>
 
 </form>
 

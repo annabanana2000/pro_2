@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <meta charset="UTF-8">
     <title>Deine Wahl</title>
 
@@ -9,26 +10,9 @@
 <h1>Deine Wahl</h1>
 <p>Du hast die Idee {{ idee }} des Ausflugs {{ ausflugID }} für CHF {{ kosten }} ausgewählt.
 Dein monatliches Budget beträgt CHF {{ budget }} von dem du nun CHF {{ ausgegeben }} ausgegben hast.</p>
-<table>
-    <thead>
-      <tr>
-          <th>Datum</th>
-          <th>Ausflug</th>
-          <th>Idee</th>
-          <th>Kosten</th>
-      </tr>
-      {% for buchung in buchungen %}
-      <tr>
-        <td>{{ buchung.date }}</td>
-        <td>{{ buchung.ausflugID }}</td>
-        <td>{{ buchung.idee }}</td>
-          <td>{{ buchung.kosten }}</td>
-      </tr>
-      {% endfor %}
-    </thead>
-</table>
-<form action="bisherige-ausfluege" method="post">
-    <button type="submit" name="button" value="select">zur Startseite</button>
+
+<form action="bisherige-ausfluege" method="get">
+    <button type="submit" name="button" value="select" class="btn btn-dark">zu bisherigen Ausflügen</button>
     </form>
 </body>
 </html>
