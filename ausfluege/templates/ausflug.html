@@ -14,7 +14,7 @@
       <legend>Wähle deinen Ausflug</legend>
         {% for ausflug in ausfluege %}
       <div>
-        <input type="radio" id="{{ ausflug.ausflugID }}" name="ausflugID" value="{{ ausflug.ausflugID }}" />
+          <input type="radio" id="{{ ausflug.ausflugID }}" name="ausflugID" value="{{ ausflug.ausflugID }}" {% if loop.first %} checked  {% endif %}/>
         <label for="{{ ausflug.ausflugID }}">{{ ausflug.ausflugID }} (CHF {{ ausflug.kosten }}) </label>
       </div>
         {% endfor %}

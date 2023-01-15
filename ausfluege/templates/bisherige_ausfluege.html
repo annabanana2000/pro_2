@@ -2,13 +2,11 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Deine Wahl</title>
+    <title>Bisherige Ausflüge</title>
 
 </head>
 <body>
-<h1>Deine Wahl</h1>
-<p>Du hast die Idee {{ idee }} des Ausflugs {{ ausflugID }} für CHF {{ kosten }} ausgewählt.
-Dein monatliches Budget beträgt CHF {{ budget }} von dem du nun CHF {{ ausgegeben }} ausgegben hast.</p>
+<h1>Deine bisherigen Ausflüge</h1>
 <table>
     <thead>
       <tr>
@@ -27,8 +25,8 @@ Dein monatliches Budget beträgt CHF {{ budget }} von dem du nun CHF {{ ausgegeb
       {% endfor %}
     </thead>
 </table>
-<form action="bisherige-ausfluege" method="post">
-    <button type="submit" name="button" value="select">zur Startseite</button>
+<form action="kriterien-erfassen" method="get">
+    <button type="submit" name="button" value="select">neuer Ausflug</button>
     </form>
 </body>
 </html>

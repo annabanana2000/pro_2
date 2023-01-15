@@ -12,14 +12,16 @@
       <legend>Wähle aus folgenden Ideen für den Ausflug {{ ausflugID }}</legend>
         {% for idee in ausflug.ideen %}
       <div>
-        <input type="radio" id="{{ idee }}" name="idee" value="{{ idee }}" />
+
+        <input type="radio" id="{{ idee }}" name="idee" value="{{ idee }}" {% if loop.first %} checked  {% endif %}/>
         <label for="{{ idee }}">{{ idee }} </label>
         <input type="hidden" id="ausflugID" name="ausflugID" value="{{ ausflug.ausflugID }}">
         <input type="hidden" id="kosten" name="kosten" value="{{ ausflug.kosten }}">
       </div>
         {% endfor %}
     </fieldset>
-    <input type="submit" value="Submit">
+    <button type="submit" name="button" value="back">Zurück</button>
+    <button type="submit" name="button" value="select">Auswählen</button>
 </form>
 
 </body>

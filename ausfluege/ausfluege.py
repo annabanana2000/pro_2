@@ -23,7 +23,12 @@ def ausflug():
     if finanzen is None:
         return redirect('budget-erfassen')
     else:
-        return redirect('kriterien-erfassen')
+        return redirect('bisherige-ausfluege')
+
+@app.route('/bisherige-ausfluege', methods=['GET'])
+def bisherige_ausfluege():
+    buchungen = buchung_einlesen()
+    return render_template('bisherige_ausfluege.html',buchungen = buchungen)
 
 @app.route('/budget-erfassen', methods=['GET', 'POST'])
 #Quelle: https://vegibit.com/how-to-use-forms-in-python-flask/
@@ -43,20 +48,20 @@ def kritierien_erfassen():
         budget = budget_einlesen()
         uebrig_monat = budget.monatslimit - budget.spent
 
-#Ermittlung von Parametern für kriterien.html
+        #Ermittlung von Parametern für kriterien.html
         kriterien = parameter_einlesen()
         budget = budget_einlesen()
         uebrig_monat = budget.monatslimit - budget.spent
         kategorien = filter(filter_category, kriterien)
-        # Filter, dass nur Aktivitäten angezeigt werden, welche im Budget liegen
+        #Hier ist die Filterfunktion, damit nur Preise gezeigt werden, welche im Budget liegen
         preise = [k for k in kriterien if k.kind == 'price' and int(k.value) <= uebrig_monat]
         personen = filter(filter_person, kriterien)
 
-#rot = html / weiss = für py
+        #rot = html / weiss = für py
         return render_template('kriterien.html', uebrig=uebrig_monat, kategorien = kategorien, preise = preise, personen = personen)
     else:  # request.method == 'POST'
         alle_ausfluege = ausfluege_einlesen()
- # Filtern aus Liste https://blog.finxter.com/how-to-filter-a-list-in-python/ // Man filtert eine Liste (ausfluege) und nach dem if ist der filter. Wenn dieser "True" ist kommt es als Vorschlag
+        # Filtern aus Liste https://blog.finxter.com/how-to-filter-a-list-in-python/ // Man filtert eine Liste (ausfluege) und nach dem if ist der filter. Wenn dieser "True" ist kommt es als Vorschlag
         passende_ausfluege = [ausflug for ausflug in alle_ausfluege if selektion_passt(ausflug = ausflug, selektion = request.form)]
         return render_template('ausflug.html', ausfluege = passende_ausfluege)
 
@@ -64,14 +69,17 @@ def kritierien_erfassen():
 def ideen_anzeigen():
     button = request.form['button']
     if button == 'back':
-        return 'wir gehen zurück'
+        return redirect('/kriterien-erfassen')
     alle_ausfluege = ausfluege_einlesen()
     ausflugID = request.form['ausflugID']
     ausflug = next(ausflug for ausflug in alle_ausfluege if ausflug.ausflugID == ausflugID)
-    button = request.form['button']
+    return render_template('ideen.html', ausflug = ausflug)
 
 @app.route('/ausflug-buchen', methods=['POST'])
 def ausflug_buchen():
+    button = request.form['button']
+    if button == 'back':
+        return redirect('/kriterien-erfassen')
     ausflugID = request.form['ausflugID']
     idee = request.form['idee']
     kosten = int(request.form['kosten'])
@@ -86,10 +94,15 @@ def ausflug_buchen():
 
 # https://www.programiz.com/python-programming/methods/built-in/filter
 # a function that returns true if criterium is of kind category
+
+#Hier ist die Filterfunktion für Kategorien
 def filter_category(kriterium):
     return kriterium.kind == 'category'
+#Hier ist die Filterfunktion für die Anzahl Personen
 def filter_person(kriterium):
     return kriterium.kind == 'person'
+
+#Hier ist die Filterfunktion für Ausflüge
 def selektion_passt(ausflug : Ausflug, selektion: MultiDict):
     for angeklickt in selektion.items():
         kind, value = angeklickt
