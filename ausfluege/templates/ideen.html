@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
-    <meta charset="UTF-8">
-    <title>Idee auswählen</title>
-
-</head>
-<body>
-<h1>Idee auswählen</h1>
+{% include 'header.jinja' %}
+<h2>Idee auswählen</h2>
 <form action="ausflug-buchen" method="post">
-    <fieldset>
+    <fieldset class="form-group">
       <legend>Wähle aus folgenden Ideen für den Ausflug {{ ausflugID }}</legend>
         {% for idee in ausflug.ideen %}
       <div>
@@ -21,9 +13,8 @@
       </div>
         {% endfor %}
     </fieldset>
+    <br>
     <button type="submit" name="button" value="back" class="btn btn-dark">Zurück</button>
     <button type="submit" name="button" value="select"class="btn btn-dark">Auswählen</button>
 </form>
-
-</body>
-</html>
+{% include 'footer.jinja' %}

@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
-    <meta charset="UTF-8">
-    <title>Budgeterfassung</title>
-</head>
-<body>
-<h1>Budgeterfassung</h1>
-<p>Bitte erfassen Sie als erstes das Budget für den akutellen Monat</p>
+{% include 'header.jinja' %}
+<h2>Budgeterfassung</h2>
+<p>Bitte erfasse das Budget für den aktuellen Monat</p>
 <form action="budget-erfassen" method="post">
     <label for="budget">Budget für diesen Monat</label>
     <input type="number" name="budget" value="" required>
     <input type="submit" value="Submit" class="btn btn-dark">
 </form>
-
-</body>
-</html>
+{% include 'footer.jinja' %}

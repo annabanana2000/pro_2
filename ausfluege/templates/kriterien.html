@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
-    <meta charset="UTF-8">
-    <title>Budgeterfassung</title>
-</head>
-<body>
-<h1>Was willst du heute machen?</h1>
+{% include 'header.jinja' %}
+<h2>Was willst du heute machen?</h2>
 
   <!--  value = was auf der Datenbank, alles klein in csv / Label = was er anzeigt im Tool
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio
@@ -15,18 +8,18 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox-->
 
 <p>Für diesen Monat stehen noch CHF {{ uebrig }} zur Verfügung</p>
 <p>Bitte wähle alle deine gewünschten Kriterien für deinen nächsten Ausflug.</p>
-<form action="kriterien-erfassen" method="post">
-    <fieldset>
+<form action="ausflug-auswaehlen" method="post">
+    <fieldset class="form-group">
       <legend>Wähle die Kategorien</legend>
         {% for kriterium in kategorien %}
       <div>
-        <input type="{{ kriterium.type }}" id="{{ kriterium.value }}" name="{{ kriterium.kind }}" value="{{ kriterium.value }}" />
-        <label for="{{ kriterium.value }}">{{ kriterium.label }}</label>
+        <input class="form-check-input" type="{{ kriterium.type }}" id="{{ kriterium.value }}" name="{{ kriterium.kind }}" value="{{ kriterium.value }}" />
+        <label class="form-check-label" for="{{ kriterium.value }}">{{ kriterium.label }}</label>
       </div>
         {% endfor %}
-    </fieldset>
+    </fieldset >
 
-    <fieldset>
+    <fieldset class="form-group">
         <legend>In welchem Preissegment willst du dich bewegen?</legend>
         {% for kriterium in preise %}
         <div>
@@ -36,7 +29,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox-->
         {% endfor %}
     </fieldset>
 
-    <fieldset>
+    <fieldset class="form-group">
       <legend>Für wie viele Personen soll der Ausflug sein?</legend>
         {% for kriterium in personen %}
         <div>
@@ -45,8 +38,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox-->
         </div>
         {% endfor %}
     </fieldset>
+    <br>
     <button type="submit" name="button" value="select" class="btn btn-dark">Auswählen</button>
 </form>
-
-</body>
-</html>
+{% include 'footer.jinja' %}

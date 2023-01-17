@@ -1,16 +1,7 @@
 <!--- https://wiki.selfhtml.org/wiki/HTML/Elemente/button  Buttons-->
-
-<!DOCTYPE html>
-<html lang="de" xmlns="http://www.w3.org/1999/html">
-<head>
-    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
-    <meta charset="UTF-8">
-    <title>Ausflug auswählen</title>
-
-</head>
-<body>
+{% include 'header.jinja' %}
 <h1>Ausflug auswählen</h1>
-<form action="ideen-anzeigen" method="post">
+<form action="idee-auswaehlen" method="post">
     <fieldset>
       <legend>Wähle deinen Ausflug</legend>
         {% for ausflug in ausfluege %}
@@ -21,10 +12,9 @@
         {% endfor %}
     </fieldset>
     <!Wenn man auf diese Buttons drückt, springt es zu ideen-anzeigen. Dies ist ersichtlich im Form Tag oben-->
+    <br>
     <button type="submit" name="button" value="back" class="btn btn-dark">Zurück</button>
     <button type="submit" name="button" value="select" class="btn btn-dark">Auswählen</button>
 
 </form>
-
-</body>
-</html>
+{% include 'footer.jinja' %}

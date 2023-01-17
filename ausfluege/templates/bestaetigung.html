@@ -1,18 +1,9 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
-    <meta charset="UTF-8">
-    <title>Deine Wahl</title>
-
-</head>
-<body>
-<h1>Deine Wahl</h1>
-<p>Du hast die Idee {{ idee }} des Ausflugs {{ ausflugID }} für CHF {{ kosten }} ausgewählt.
+{% include 'header.jinja' %}
+<h2>Deine Wahl</h2>
+<p>Du hast die Idee {{ idee }} für CHF {{ kosten }} gebucht.
 Dein monatliches Budget beträgt CHF {{ budget }} von dem du nun CHF {{ ausgegeben }} ausgegben hast.</p>
 
 <form action="bisherige-ausfluege" method="get">
     <button type="submit" name="button" value="select" class="btn btn-dark">zu bisherigen Ausflügen</button>
     </form>
-</body>
-</html>
+{% include 'footer.jinja' %}

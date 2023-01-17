@@ -39,7 +39,9 @@ def budget_einlesen():
                 budget = Budget(datum, int(row['monatslimit']), int(row['spent']))
                 return budget; #row ist ein dict
         return None
-def parameter_einlesen(): #Kriterien (parameter.csv)
+
+    #Parameter = Ausflugskategorie, Preisklasse und Anzahl Personen. Wird in einer eigenen CSV Datei verwaltet (parameter.csv)
+def parameter_einlesen():
     with open('parameter.csv', mode='r', encoding='utf-8-sig') as csv_file:
         csv_reader = csv.DictReader(csv_file, delimiter=';')
         kriterien = []
