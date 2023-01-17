@@ -3,6 +3,7 @@
 # String vom Datum in Datum umwandeln https://stackoverflow.com/questions/9504356/convert-string-into-date-type-on-python
 # https://stackoverflow.com/questions/40310042/python-read-csv-bom-embedded-into-the-first-key, damit man beim ersten Parameter keine Fehler erhält
 
+# Für CSV Datei entschieden, um den Inhalt der Datenbank mit Excel bearbeiten zu können. Delimiter (Zeichen zur Abtrennung der einzelnen Spalten) wurde ; benutzt. Damit mehrwertige Eintröge mit einem Komma getrennt werden können, z.B. Ideen eines Ausflugs
 import csv #hilft eine CSV Datei einzulesen, damit aus den einzelnen Zeilen ein Dict entsteht
 from datetime import date
 from datetime import datetime
@@ -40,7 +41,7 @@ def budget_einlesen():
                 return budget; #row ist ein dict
         return None
 
-    #Parameter = Ausflugskategorie, Preisklasse und Anzahl Personen. Wird in einer eigenen CSV Datei verwaltet (parameter.csv)
+#Parameter = Ausflugskategorie, Preisklasse und Anzahl Personen. Wird in einer eigenen CSV Datei verwaltet (parameter.csv)
 def parameter_einlesen():
     with open('parameter.csv', mode='r', encoding='utf-8-sig') as csv_file:
         csv_reader = csv.DictReader(csv_file, delimiter=';')
@@ -74,7 +75,6 @@ def buchung_einlesen():
             buchung = Buchung(datum, row['ausflugID'], row['idee'], int(row['kosten']))
             buchungen.append(buchung)
         return buchungen
-
 def budget_und_buchung_zuruecksetzen():
     # mit 'w' wird hier das Budget und die Buchungen geleert
     with open('budget.csv', mode='w') as csv_file:

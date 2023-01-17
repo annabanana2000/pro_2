@@ -80,7 +80,7 @@ def ideen_anzeigen():
     return render_template('ideen.html', ausflug = ausflug)
 
 # Hier wird der Buchungseintrag gemacht. Anschliessend wird die Bestätigung wird dann durch bestaetigung.html angezeigt
-@app.route('/ausflug-buchen', methods=['POST'])
+@app.route('/ausflug-bucƒhen', methods=['POST'])
 def ausflug_buchen():
     button = request.form['button']
     if button == 'back':
