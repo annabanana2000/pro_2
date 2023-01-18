@@ -80,7 +80,7 @@ def ideen_anzeigen():
     return render_template('ideen.html', ausflug = ausflug)
 
 # Hier wird der Buchungseintrag gemacht. Anschliessend wird die Bestätigung wird dann durch bestaetigung.html angezeigt
-@app.route('/ausflug-bucƒhen', methods=['POST'])
+@app.route('/ausflug-buchen', methods=['POST'])
 def ausflug_buchen():
     button = request.form['button']
     if button == 'back':
@@ -108,8 +108,10 @@ def ausflug_passt_zu_kriterien(ausflug : Ausflug, selektion: MultiDict):
     for angeklickt in selektion.items():
         kind, value = angeklickt
         if kind == 'category':
-            if not (value in ausflug.kategorien):
-                return False
+            values = selektion.getlist(kind)
+            for v in values:
+                if not (v in ausflug.kategorien):
+                    return False
         if kind == 'price':
             limite = int(value)
             if ausflug.kosten > limite:
@@ -121,4 +123,4 @@ def ausflug_passt_zu_kriterien(ausflug : Ausflug, selektion: MultiDict):
     return True
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5003)
+    app.run(debug=True, port=5000)
