@@ -52,4 +52,4 @@ Es wurden folgende Pakete verwendet:
 In einem weiteren Schritt zum Ausbauen dieses Projekts, könnte man die Preise je Ausflug individuell anpassen. Ebenfalls könnten noch mehr Ideen integriert werden,damit mit es noch mehr Kriterien-Kombinationen sowie Vorschläge gibt.
 
 ### Architektur
-<img src=C"/Users/anna/Desktop/DBM_PRO2_HS2022/pro2_projekt/images/Ablaufdiagramm.png"/>
+<img src="/Users/anna/Desktop/DBM_PRO2_HS2022/pro2_projekt/images/Ablaufdiagramm.png"/>
