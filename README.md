@@ -1,7 +1,7 @@
 # Activity Inspiration
 
 ### Problemstellung / Motivation:
-Wir kennen es alle - Oft haben wir Lust etwas zu machen, aber haben keine Idee, was wir unternehmen könnten. Sollen wir einen Tagesausflug machen, brunchen, ins Kino oder Skifahren? 
+Wir kennen es alle - oft haben wir Lust etwas zu machen, aber haben keine Idee, was wir unternehmen könnten. Sollen wir einen Tagesausflug machen, brunchen, ins Kino oder Skifahren? 
 Mit dieser Anwendung soll es den Nutzerinnen und Nutzern möglich werden, Ausflüge anhand von Kategorien, Budget und Anzahl Personen zu wählen und sich somit inspirieren zu lassen. Es werden Aktivitäten vorgeschlagen, welche die gewählten Kriterien erfüllen.
 Um einen grösseren Mehrwert zu generieren, werden dem Benutzer oder der Benutzerin unter den Subkategorien jeweils noch konkrete Vorschläge gebracht (z.B. Skifahren: Laax, Arosa, Davos).
 
@@ -49,7 +49,8 @@ Es wurden folgende Pakete verwendet:
 - Datetime für das Datum der Buchung sowie Datumsberechnungen wie das Budget anfangs Monat
 
 ### Ungelöste/unbearbeitete Probleme:
-In einem weiteren Schritt zum Ausbauen dieses Projekts, könnte man die Preise je Ausflug individuell anpassen. Ebenfalls könnten noch mehr Ideen integriert werden,damit mit es noch mehr Kriterien-Kombinationen sowie Vorschläge gibt.
+In einem weiteren Schritt zum Ausbauen dieses Projekts, könnte man die Preise je Ausflug individuell anpassen. Ebenfalls könnten noch mehr Ideen integriert werden, damit 
+es noch mehr Kriterien-Kombinationen sowie Vorschläge gibt.
 
 ### Architektur
-<img src="/Users/anna/Desktop/DBM_PRO2_HS2022/pro2_projekt/images/Ablaufdiagramm.png"/>
+<img src="images/Ablaufdiagramm.png"/>
